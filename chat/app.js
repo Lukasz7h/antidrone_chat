@@ -1,6 +1,8 @@
 const { app, BrowserWindow } = require('electron')
 const url = require("url");
+
 const path = require("path");
+const { globalShortcut } = require("electron")
 
 let mainWindow;
 
@@ -15,8 +17,7 @@ function createWindow() {
 
     mainWindow.loadURL(
         url.format({
-            pathname: path.join(__dirname, `/dist/chat/index.html`),
-            protocol: "file:",
+            pathname: path.join(__dirname, `dist/chat/index.html`),
             slashes: true
         })
     );
@@ -26,6 +27,24 @@ function createWindow() {
     mainWindow.on('closed', function () {
         mainWindow = null
     })
+
+    globalShortcut.register('f5', function() {
+        mainWindow.loadURL(
+            url.format({
+                pathname: path.join(__dirname, `dist/chat/index.html`),
+                slashes: true
+            })
+        );
+	})
+
+	globalShortcut.register('CommandOrControl+R', function() {
+        mainWindow.loadURL(
+            url.format({
+                pathname: path.join(__dirname, `dist/chat/index.html`),
+                slashes: true
+            })
+        );
+	})
 }
 
 app.on('ready', createWindow);

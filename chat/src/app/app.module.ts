@@ -5,15 +5,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { ChatViewComponent } from './chat-view/chat-view.component';
+import { GuestsListComponent } from './guests-list/guests-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ChatViewComponent
+    ChatViewComponent,
+    GuestsListComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
